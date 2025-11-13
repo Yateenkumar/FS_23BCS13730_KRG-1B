@@ -1,0 +1,33 @@
+import javax.persistence.*;
+
+@Entity
+@Table(name = "employee")
+
+public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
+
+    @Column(name = "salary")
+    private double salary;
+
+    public Employee() {}  
+
+    public Employee(String email, double salary) {
+        this.email = email;
+        this.salary = salary;
+    }
+
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public double getSalary() { return salary; }
+    public void setSalary(double salary) { this.salary = salary; }
+}
